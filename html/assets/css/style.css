@@ -294,6 +294,10 @@ header .logo {
 	float: left;
 	margin: 40px 0;
 }
+header .logo .fb-like{
+	line-height: 20px;
+    padding-left: 20px;
+}
 header .search {
 	float: right;
 	width: 380px;
@@ -587,13 +591,13 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	transition: 0.4s ease-in-out;
 }
 .great-deals .coupon-inner:hover {
-	border-color: #ffdd00;
+	border-color: #ea6a24;
 }
 .great-deals .coupon-inner .top-tag {
 	display: inline-block;
 	width: 100%;
 }
-.great-deals .coupon-inner .ribn-red {
+.great-deals .coupon-inner .eten {
 	width: 115px;
 	float: left;
 	display: inline-block;
@@ -601,16 +605,16 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	text-align: center;
 	color: #fff;
 	font-size: 12px;
-	background: url(../images/ribn-red.png) right no-repeat;
 	padding-right: 15px;
 }
-.great-deals .coupon-inner .ribn-red span {
-	background: #f01b3b;
+.great-deals .coupon-inner .eten span {
+	background: #ea6a24;
 	line-height: 24px;
 	display: inline-block;
 	width: 100%;
 }
-.great-deals .coupon-inner .ribn-pur {
+
+.great-deals .coupon-inner .fun {
 	width: 115px;
 	float: left;
 	display: inline-block;
@@ -618,22 +622,87 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	text-align: center;
 	color: #fff;
 	font-size: 12px;
-	background: url(../images/ribn-purple.png) right no-repeat;
 	padding-right: 15px;
 }
-.great-deals .coupon-inner .ribn-pur span {
+.great-deals .coupon-inner .fun span {
+	background: #33ab12;
+	line-height: 24px;
+	display: inline-block;
+	width: 100%;
+}
+.great-deals .coupon-inner .gadget {
+	width: 115px;
+	float: left;
+	display: inline-block;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	padding-right: 15px;
+}
+.great-deals .coupon-inner .gadget span {
+	background: #2f2f2f;
+	line-height: 24px;
+	display: inline-block;
+	width: 100%;
+}
+.great-deals .coupon-inner .tussenuit {
+	width: 115px;
+	float: left;
+	display: inline-block;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	padding-right: 15px;
+}
+.great-deals .coupon-inner .tussenuit span {
+	background: #c1b509;
+	line-height: 24px;
+	display: inline-block;
+	width: 100%;
+}
+
+.great-deals .coupon-inner .vakantie {
+	width: 115px;
+	float: left;
+	display: inline-block;
+	text-transform: uppercase;
+	text-align: center;
+	color: #fff;
+	font-size: 12px;
+	padding-right: 15px;
+}
+.great-deals .coupon-inner .vakantie span {
 	background: #9900b5;
 	line-height: 24px;
 	display: inline-block;
 	width: 100%;
 }
-.great-deals .coupon-inner .star {
-	float: right;
-	margin-top: -5px;
-	font-size: 26px;
-	color: #ef203f;
-	margin-right: 25px;
+.great-deals .coupon-inner span span:before {
+	border-color: transparent #fff transparent transparent;
+    border-style: solid;
+    border-width: 12px 13px 12px 0;
+    content: "";
+    display: inline-block;
+    height: 0;
+    left: 87px;
+    margin-right: 5px;
+    position: absolute;
+    vertical-align: middle;
+    width: 0;
 }
+
+.great-deals .coupon-inner .timer {
+    background-color: #1d3143;
+    color: #fff;
+    font-size: 18px;
+    padding: 5px 0;
+    text-align: center;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 .great-deals .coupon-inner .top-tag {
 	display: inline-block;
 	width: 100%;
@@ -655,8 +724,11 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	width: 100%;
 	margin-bottom: 10px;
 }
+.great-deals .coupon-inner .fb-like {
+    margin: 20px 0;
+}
 .great-deals .coupon-inner .btn {
-	background: #002b5e;
+	background: #ea6a24;
 	text-transform: uppercase;
 	color: #fff;
 	border-radius: 0px;
@@ -666,10 +738,10 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	margin-top: 15px;
 }
 .great-deals .coupon-inner .btn:hover {
-	background: #ffdd00;
-	color: #002b5e;
+	background: #002b5e;
+	color: #fff;
 }
-.btm-info {
+/*.btm-info {
 	display: inline-block;
 	width: 100%;
 	background: #f7f7f7;
@@ -705,7 +777,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 .great-deals .btm-info li:nth-child(1) i {
 	width: auto;
 	color: #002b5e;
-}
+}*/
 /*=======================================================
 			FEATURED CATEGORIES
 ========================================================*/
@@ -2923,9 +2995,8 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 			FOOTER
 ========================================================*/
 footer {
-	padding: 80px 0;
+	padding: 40px 0;
 	background: none repeat scroll 0 0 #002b5e;
-	padding-bottom: 0px;
 }
 footer h6 {
 	color: #fff;
@@ -2953,8 +3024,7 @@ footer .links a:hover {
 	text-decoration: underline !important;
 }
 footer .subcribe {
-	border: 1px solid rgba(76,171,51,0.2);
-	padding: 30px 20px;
+	padding: 0 20px;
 	display: inline-block;
 	width: 100%;
 }
@@ -2967,19 +3037,22 @@ footer .subcribe input {
 }
 footer .subcribe .form-control {
 	border-radius: 0px;
+    border: 2px solid #000;
 }
 footer button {
-	background: #002b5e;
+	background: #ea6a24;
 	color: #fff;
 	font-size: 12px;
 	text-transform: uppercase;
-	line-height: 34px;
+	line-height: 30px;
 	float: right;
 	margin-top: -34px;
 	position: relative;
 	z-index: 1;
 	border: none;
 	padding: 0 10px;
+    border: 2px solid #000;
+    border-left: none;
 }
 footer .rights {
 	background: #111111;

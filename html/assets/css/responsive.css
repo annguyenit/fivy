@@ -1,5 +1,5 @@
 /*============================================================================
-			RESPONSIVE CSS WITH MEDIA 
+			RESPONSIVE CSS WITH MEDIA
 =============================================================================*/
 
 /*=============  MEDIA 1400px   =============*/
@@ -96,7 +96,7 @@ header nav li a {
 .flex-direction-nav a {
 	top: 35%;
 }
-.great-deals .coupon-inner .head {
+.great-deals .coupon-inner .head, .great-deals .coupon-inner .timer {
 	font-size: 14px;
 	line-height: 20px;
 }

@@ -597,6 +597,17 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	display: inline-block;
 	width: 100%;
 }
+
+.great-deals .coupon-inner .sponsor{
+    font-size: 18px;
+    text-transform: uppercase;
+    color: #222222;
+    line-height: 26px;
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+    padding: 0 25px;
+}
 .great-deals .coupon-inner .eten {
 	width: 115px;
 	float: left;
@@ -725,7 +736,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	margin-bottom: 10px;
 }
 .great-deals .coupon-inner .fb-like {
-    margin: 20px 0;
+    margin: 35px 0;
 }
 .great-deals .coupon-inner .btn {
 	background: #ea6a24;
@@ -737,9 +748,25 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	margin: 0 auto;
 	margin-top: 15px;
 }
+.great-deals .coupon-inner .btn-sponsor{
+    background: #002b5e;
+    margin: 20px 0;
+}
+.great-deals .coupon-inner .btn-sponsor:hover {
+	background: #ea6a24 !important;
+	color: #fff;
+}
+
 .great-deals .coupon-inner .btn:hover {
 	background: #002b5e;
 	color: #fff;
+}
+.scream {
+    padding: 80px 0;
+}
+.scream .tittle{
+    text-align: left;
+    margin-bottom: 20px;
 }
 /*.btm-info {
 	display: inline-block;
@@ -2998,12 +3025,13 @@ footer {
 	padding: 40px 0;
 	background: none repeat scroll 0 0 #002b5e;
 }
-footer h6 {
+footer h3 {
 	color: #fff;
 	text-transform: uppercase;
 	color: #fff;
 	margin: 0px;
 	margin-bottom: 30px;
+        font-size: 16px;
 }
 footer p {
 	color: #fff;

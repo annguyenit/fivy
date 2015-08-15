@@ -576,6 +576,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	position: relative;
 }
 .great-deals .coupon-inner {
+        min-height: 475px;
 	padding: 30px 0;
 	padding-bottom: 0px;
 	border: 1px solid #e9e9e9;
@@ -738,7 +739,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 .great-deals .coupon-inner .fb-like {
     margin: 35px 0;
 }
-.great-deals .coupon-inner .btn {
+.great-deals .coupon-inner .btn, .great-deals .coupon-inner-detail .btn {
 	background: #ea6a24;
 	text-transform: uppercase;
 	color: #fff;
@@ -757,9 +758,25 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	color: #fff;
 }
 
-.great-deals .coupon-inner .btn:hover {
+.great-deals .coupon-inner .btn:hover, .great-deals .coupon-inner-detail .btn:hover  {
 	background: #002b5e;
 	color: #fff;
+}
+.great-deals .coupon-inner-detail .head {
+    	font-size: 24px;
+	text-transform: uppercase;
+	color: #222222;
+	line-height: 26px;
+	margin-top: 10px;
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 25px;
+}
+.great-deals .left{
+    text-align: left;
+}
+.great-deals .more-deal{
+    margin-bottom: 25px;
 }
 .scream {
     padding: 80px 0;

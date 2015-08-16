@@ -24,6 +24,8 @@
     </div>
   </footer>
 </div>
+<div id="fb-root"></div>
+<?php wp_footer(); ?>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery-1.js"></script>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/wow.js"></script>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/bootstrap.js"></script>
@@ -34,7 +36,12 @@
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery_004.js"></script>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/own-menu.js"></script>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/main.js"></script>
-<div id="fb-root"></div>
-<?php wp_footer(); ?>
+
+<?php
+// INIT MAP    
+if (get_field('contact_show_map') && get_field('contact_show_map') == 'Yes') {
+    get_template_part( 'content', 'map_init' );
+}
+?>
 </body>
 </html>

@@ -4,7 +4,7 @@
     <meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>">
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title><?php wp_title ( '|', true,'right' ); ?></title>
+    <title><?php wp_title ('|', true, 'right'); ?><?php bloginfo('name'); ?></title>
     <meta name="keywords" content="HTML5,CSS3,HTML,Template,Multi-Purpose,M_Adnan,Corporate Theme,Comre - Coupon &amp; Offers Template">
     <meta name="description" content="Comre - Coupon &amp; Offers HTML Template">
     <meta name="author" content="M_Adnan">
@@ -60,7 +60,7 @@
           <li style=""><a href="http://wpmines.com/demos/comre/03-About-Us.html">SCHREEUW EN WIN!</a></li>
           <li style=""><a href="http://wpmines.com/demos/comre/07-By-Stores.html">WORD SPONSOR</a></li>
           <li style=""><a href="http://wpmines.com/demos/comre/04-coupons.html">OVER ONS</a> </li>
-          <li style=""><a href="http://wpmines.com/demos/comre/16-Contact.html">CONTACT</a> </li>
+          <li style=""><a href="<?php echo site_url('contact'); ?>">CONTACT</a> </li>
         </ul>
       </div>
     </nav>

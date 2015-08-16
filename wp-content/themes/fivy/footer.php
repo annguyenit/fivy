@@ -1,34 +1,40 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the "site-content" div and all content after.
- *
- * @package WordPress
- * @subpackage Twenty_Fifteen
- * @since Twenty Fifteen 1.0
- */
-?>
-
-	</div><!-- .site-content -->
-
-	<footer id="colophon" class="site-footer" role="contentinfo">
-		<div class="site-info">
-			<?php
-				/**
-				 * Fires before the Twenty Fifteen footer text for footer customization.
-				 *
-				 * @since Twenty Fifteen 1.0
-				 */
-				do_action( 'twentyfifteen_credits' );
-			?>
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'twentyfifteen' ) ); ?>"><?php printf( __( 'Proudly powered by %s', 'twentyfifteen' ), 'WordPress' ); ?></a>
-		</div><!-- .site-info -->
-	</footer><!-- .site-footer -->
-
-</div><!-- .site -->
-
+<!--======= FOOTER =========-->
+  <footer>
+    <div class="container">
+      <ul class="row">
+        <li class="col-sm-4">
+          <h3>about comre</h3>
+          <p>Hello we are Comre. We are here to provide you the best offers through our coupons. Hello we are
+            Comre. We are here to provide you coupons.</p>
+          <p>54/20  North Street, Melbourne, 18 Australia</p>
+          <p>Contact@Comre.com</p>
+          <p>http://Comre.com</p>
+        </li>
+        <li class="col-sm-4">
+          <div class="fb-page" data-href="https://www.facebook.com/fivydeals" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fivydeals"><a href="https://www.facebook.com/fivydeals">Fivy</a></blockquote></div></div>
+        </li>
+        <li class="col-sm-4">
+          <div class="subcribe">
+            <h3>MIS GEEN ENKELE DEAL!</h3>
+            <input class="form-control" placeholder="Email Address" type="search">
+            <button type="submit">AANMELDEN!</button>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </footer>
+</div>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery-1.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/wow.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/bootstrap.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery_002.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery_003.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/owl.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/jquery_004.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/own-menu.js"></script>
+<script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/main.js"></script>
+<div id="fb-root"></div>
 <?php wp_footer(); ?>
-
 </body>
 </html>

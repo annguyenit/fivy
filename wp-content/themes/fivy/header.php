@@ -10,15 +10,15 @@
     <meta name="author" content="M_Adnan">
 
     <!-- FONTS ONLINE -->
-    <link href="assets/css/font.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/font.css" rel="stylesheet" type="text/css">
 
     <!--MAIN STYLE-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/main.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/style.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/animate.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/responsive.css" rel="stylesheet" type="text/css">
-    <link href="assets/css/font-awesome.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/bootstrap.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/main.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/style.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/animate.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/responsive.css" rel="stylesheet" type="text/css">
+    <link href="<?php echo esc_url( get_template_directory_uri() ); ?>/css/font-awesome.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -26,6 +26,7 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <?php wp_head(); ?>
 </head>
 <body>
 <div id="fb-root"></div>
@@ -44,7 +45,7 @@
     <div class="container">
       <!--======= LOGO =========-->
       <div class="logo">
-          <a href="#."><img src="assets/images/logo.png" alt=""></a>
+          <a href="#."><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt=""></a>
           <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>
     </div>

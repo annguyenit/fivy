@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 
 <?php
-
+    global $fivy_options;
 ?>
 <section class="great-deals">
     <div class="container">
@@ -74,11 +74,11 @@
           <li class="col-sm-4">
             <div class="coupon-inner">
                 <div class="top-tag">
-                    <span class="sponsor">SPONSOR VAN DE DAG</span>
+                    <span class="sponsor"><?php echo $fivy_options['sponsor-title']; ?></span>
                 </div>
                 <div class="c-img">
                     <div class="text-center">
-                        <p>Ook sponsor van de dag worden? v.a. €75,- staat uw aanbieding hier in het oog van meer dan 1.000 bezoekers per dag!</p>
+                        <p><?php echo $fivy_options['sponsor-content']; ?></p>
                         <script type="text/javascript">
                             google_ad_client = "ca-pub-5248039354450328";
                             google_ad_slot = "1769310150";
@@ -87,7 +87,7 @@
                         </script>
                         <!-- Fivy [square] -->
                         <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-                        <a href="#" class="btn btn-sponsor">WORD SPONSOR</a>
+                        <a href="<?php echo $fivy_options['sponsor-button-url']; ?>" class="btn btn-sponsor"><?php echo $fivy_options['sponsor-button-text']; ?></a>
                     </div>
                 </div>
             </div>

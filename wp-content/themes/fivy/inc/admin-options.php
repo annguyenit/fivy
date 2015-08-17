@@ -10,7 +10,7 @@ if (!class_exists('Redux')) {
 }
 
 // This is your option name where all the Redux data is stored.
-$opt_name = "martel_options";
+$opt_name = "fivy_options";
 
 
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
@@ -27,8 +27,8 @@ $args = array(
     //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
     'allow_sub_menu' => true,
     // Show the sections below the admin menu item or not
-    'menu_title' => __('An Nguyen', 'redux-framework-demo'),
-    'page_title' => __('Martel Options', 'redux-framework-demo'),
+    'menu_title' => __('Fivy Options', 'redux-framework-demo'),
+    'page_title' => __('Fivy Options', 'redux-framework-demo'),
     // You will need to generate a Google API key to use this feature.
     // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
     'google_api_key' => '',
@@ -142,58 +142,61 @@ Redux::setSection($opt_name, array(
         array(
             'id' => 'logo',
             'type' => 'media',
-            'title' => __('Add/Edit Logo', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-        array(
-            'id' => 'logo1',
-            'type' => 'media',
-            'title' => __('Add/Edit Logo', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-        array(
-            'id' => 'log2o',
-            'type' => 'media',
-            'title' => __('Add/Edit Logo', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
+            'title' => __('Logo', 'redux-framework-demo'),
+            'subtitle' => __('The logo', 'redux-framework-demo'),
+            'desc' => __('Update logo image', 'redux-framework-demo'),
+        )
     )
 ));
 
 Redux::setSection($opt_name, array(
-    'title' => __('Footer', 'redux-framework-demo'),
-    'id' => 'footer',
+    'title' => __('Footer text block', 'redux-framework-demo'),
+    'id' => 'footer-text-block',
     'icon' => 'el el-picture',
     //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
     //'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'copyright',
+            'id' => 'footer-text-block-title',
             'type' => 'text',
-            'title' => __('Copyright', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+            'title' => __('Title', 'redux-framework-demo')
+        ),
+        array(
+            'id' => 'footer-text-block-content',
+            'type' => 'textarea',
+            'title' => __('Content', 'redux-framework-demo')
         ),
     )
 ));
 
 Redux::setSection($opt_name, array(
-    'title' => __('Background Homepage', 'redux-framework-demo'),
-    'id' => 'media-gallery',
+    'title' => __('Sponsor block', 'redux-framework-demo'),
+    'id' => 'sponsor-block',
     'icon' => 'el el-picture',
     //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
     //'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'home-gallery',
-            'type' => 'gallery',
-            'title' => __('Add/Edit Gallery', 'redux-framework-demo'),
-            'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
+            'id' => 'sponsor-title',
+            'type' => 'text',
+            'title' => __('Title', 'redux-framework-demo'),
+            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        ),
+        array(
+            'id' => 'sponsor-content',
+            'type' => 'textarea',
+            'title' => __('Content', 'redux-framework-demo'),
+        ),
+        array(
+            'id' => 'sponsor-button-text',
+            'type' => 'text',
+            'title' => __('Button text', 'redux-framework-demo'),
+        ),
+        array(
+            'id' => 'sponsor-button-url',
+            'type' => 'text',
+            'title' => __('Button url', 'redux-framework-demo'),
         ),
     )
 ));

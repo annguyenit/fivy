@@ -1,3 +1,6 @@
+<?php
+    global $fivy_options;
+?>
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions" <?php language_attributes(); ?>>
 <head>
@@ -45,7 +48,9 @@
     <div class="container">
       <!--======= LOGO =========-->
       <div class="logo">
-          <a href="#."><img src="<?php echo esc_url( get_template_directory_uri() ); ?>/images/logo.png" alt=""></a>
+          <?php if (isset($fivy_options['logo']['url'])): ?>
+          <a href="#."><img src="<?php echo esc_url( $fivy_options['logo']['url'] ); ?>" alt=""></a>
+          <?php endif; ?>
           <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>
     </div>

@@ -1,4 +1,8 @@
 <?php get_header(); ?>
+
+<?php
+
+?>
 <section class="great-deals">
     <div class="container">
       <!--======= TITTLE =========-->
@@ -69,7 +73,7 @@
           </li>
           <li class="col-sm-4">
             <div class="coupon-inner">
-                <div class="top-tag"> 
+                <div class="top-tag">
                     <span class="sponsor">SPONSOR VAN DE DAG</span>
                 </div>
                 <div class="c-img">
@@ -83,7 +87,7 @@
                         </script>
                         <!-- Fivy [square] -->
                         <script type="text/javascript" src="//pagead2.googlesyndication.com/pagead/show_ads.js"></script>
-                        <a href="#" class="btn btn-sponsor">WORD SPONSOR</a> 
+                        <a href="#" class="btn btn-sponsor">WORD SPONSOR</a>
                     </div>
                 </div>
             </div>

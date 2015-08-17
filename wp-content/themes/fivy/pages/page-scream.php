@@ -1,4 +1,9 @@
-<?php /* get_header(); ?>
+<?php
+/* Template Name: Scream Template */
+
+get_header();
+
+?>
 
 <?php if ( have_posts() ) : ?>
 <?php while ( have_posts() ) : the_post(); ?>
@@ -14,4 +19,4 @@
 </section>
 <?php endwhile; ?>
 <?php endif; ?>
-<?php get_footer(); */?>
+<?php get_footer(); ?>

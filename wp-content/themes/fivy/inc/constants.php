@@ -1,0 +1,4 @@
+<?php
+/**
+ * FOR DEFINE CONSTANTS
+ */

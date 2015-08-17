@@ -1,10 +1,9 @@
 <?php
-
-define('TEMPLATE_PATH', get_template_directory());
-
-include_once TEMPLATE_PATH.'/inc/admin-options.php';
-function temp_function() {
-    global $redux_demo;
-//print_r($redux_demo);die;
+// Load defined
+if(file_exists(TEMPLATEPATH . '/inc/constants.php')){
+    include_once(TT_ADMIN_FOLDER_PATH.'constants.php');  //ALL CONSTANTS FILE INTEGRATOR
 }
-add_filter('init', 'temp_function');
+// Register theme options
+include_once TEMPLATEPATH.'/inc/admin-options.php';
+
+

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html class="csstransforms no-csstransforms3d csstransitions" <?php language_attributes(); ?>>
 <head>
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
     <meta http-equiv="content-type" content="text/html; charset=<?php bloginfo( 'charset' ); ?>">
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -56,10 +57,11 @@
     </div>
 
     <!--======= NAV =========-->
-    <nav>
+    <?php fivy_menu( 'fivy-menu' ); ?>
+<!--    <nav>
       <div class="container">
 
-        <!--======= MENU START =========-->
+        ======= MENU START =========
         <ul class="ownmenu"><li style="display: none;" class="showhide"><span class="title"></span><span class="icon fa fa-bars"></span></li>
           <li style="" class="active"><a href="http://wpmines.com/demos/comre/index.html">HOME<span class="indicator"><i class="fa fa-angle-right"></i></span></a></li>
           <li style=""><a href="http://wpmines.com/demos/comre/03-About-Us.html">SCHREEUW EN WIN!</a></li>
@@ -68,5 +70,5 @@
           <li style=""><a href="<?php echo site_url('contact'); ?>">CONTACT</a> </li>
         </ul>
       </div>
-    </nav>
+    </nav>-->
   </header>

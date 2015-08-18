@@ -167,6 +167,11 @@ Redux::setSection($opt_name, array(
             'title' => __('Content', 'redux-framework-demo')
         ),
         array(
+            'id' => 'footer-text-block-subsribe-title',
+            'type' => 'text',
+            'title' => __('Subsribe title', 'redux-framework-demo')
+        ),
+        array(
             'id' => 'footer-text-block-form',
             'type' => 'text',
             'title' => __('Form', 'redux-framework-demo')

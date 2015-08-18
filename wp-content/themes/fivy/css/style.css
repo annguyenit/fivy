@@ -3080,11 +3080,14 @@ footer .subcribe input {
 	display: inline-block;
     width:100%;
 }
+footer input[type="submit"] {
+    width: auto;
+}
 footer .subcribe .form-control {
 	border-radius: 0px;
     border: 2px solid #000;
 }
-footer button {
+footer button, footer input[type="submit"]  {
 	background: #ea6a24;
 	color: #fff;
 	font-size: 12px;

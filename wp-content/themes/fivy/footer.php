@@ -23,8 +23,11 @@
         <li class="col-sm-4">
           <div class="subcribe">
             <h3>MIS GEEN ENKELE DEAL!</h3>
-            <input class="form-control" placeholder="Email Address" type="search">
-            <button type="submit">AANMELDEN!</button>
+            <?php
+                echo do_shortcode($fivy_options['footer-text-block-form']);
+            ?>
+<!--            <input class="form-control" placeholder="Email Address" type="search">
+            <button type="submit">AANMELDEN!</button>-->
           </div>
         </li>
       </ul>

@@ -51,7 +51,7 @@ function mp_deals_importer_do_nudeal()
 		return false;
 
 	global $user_ID;
-	$post_type = 'dagaanbiedingen';
+	$post_type = 'deal';//'dagaanbiedingen';
 	$array_post_id = array();
 	$total = 0;
 	try
@@ -145,7 +145,7 @@ function mp_deals_importer_do_dealdonkey()
 		return false;
 
 	global $user_ID;
-	$post_type = 'dagaanbiedingen';
+	$post_type = 'deal';//'dagaanbiedingen';
 	$array_post_id = array();
 	$total = 0;
 	try
@@ -233,7 +233,7 @@ function mp_deals_importer_do()
 		return false;
 
 	global $user_ID;
-	$post_type = 'dagaanbiedingen';
+	$post_type = 'deal';//'dagaanbiedingen';
 	$array_post_id = array();
 	$total = 0;
 	try

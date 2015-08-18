@@ -12,19 +12,20 @@ function generate_custom_post_deal() {
     'view_item'          => __( 'View Deal' ),
     'search_items'       => __( 'Search Deals' ),
     'not_found'          => __( 'No deals found' ),
-    'not_found_in_trash' => __( 'No deals found in the Trash' ), 
+    'not_found_in_trash' => __( 'No deals found in the Trash' ),
     'parent_item_colon'  => '',
     'menu_name'          => 'Deals'
   );
   $args = array(
     'labels'        => $labels,
+    'menu_icon'     => 'dashicons-clipboard',
     'description'   => 'Holds our deals and deal specific data',
     'public'        => true,
     'menu_position' => 5,
     'supports'      => array( 'title', 'editor', 'thumbnail', 'excerpt', 'comments' ),
     'has_archive'   => true,
   );
-  register_post_type( 'deal', $args ); 
+  register_post_type( 'deal', $args );
 }
 add_action( 'init', 'generate_custom_post_deal' );
 
@@ -39,7 +40,7 @@ function generate_taxonomies_deal() {
     'all_items'         => __( 'All Deal Categories' ),
     'parent_item'       => __( 'Parent Deal Category' ),
     'parent_item_colon' => __( 'Parent Deal Category:' ),
-    'edit_item'         => __( 'Edit Deal Category' ), 
+    'edit_item'         => __( 'Edit Deal Category' ),
     'update_item'       => __( 'Update Deal Category' ),
     'add_new_item'      => __( 'Add New Deal Category' ),
     'new_item_name'     => __( 'New Deal Category' ),

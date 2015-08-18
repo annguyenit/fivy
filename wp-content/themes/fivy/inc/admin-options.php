@@ -38,7 +38,7 @@ $args = array(
     'async_typography' => true,
     // Use a asynchronous font on the front end or font string
     //'disable_google_fonts_link' => true,                    // Disable this in case you want to create your own google fonts loader
-    'admin_bar' => true,
+    'admin_bar' => false,
     // Show the panel pages on the admin bar
     'admin_bar_icon' => 'dashicons-portfolio',
     // Choose an icon for the admin bar menu
@@ -61,7 +61,7 @@ $args = array(
     // For a full list of options, visit: http://codex.wordpress.org/Function_Reference/add_submenu_page#Parameters
     'page_permissions' => 'manage_options',
     // Permissions needed to access the options panel.
-    'menu_icon' => '',
+    'menu_icon' => 'dashicons-admin-appearance',
     // Specify a custom URL to an icon
     'last_tab' => '',
     // Force your panel to always open to a specific tab (by id)

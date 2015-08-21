@@ -3073,18 +3073,33 @@ footer .subcribe {
 	display: inline-block;
 	width: 100%;
 }
-footer .subcribe p {
+/*footer .subcribe p {
 	margin-bottom: 30px;
-}
+}*/
 footer .subcribe input {
 	display: inline-block;
     width:100%;
+}
+footer input[type="submit"] {
+    width: auto;
 }
 footer .subcribe .form-control {
 	border-radius: 0px;
     border: 2px solid #000;
 }
-footer button {
+footer .subcribe .wpcf7-validation-errors, footer .subcribe .wpcf7-mail-sent-ng {
+    border: 0;
+    color: red;
+}
+footer .subcribe .wpcf7-response-output {
+    margin: 0;
+    padding: 0;
+}
+footer .subcribe .wpcf7-mail-sent-ok {
+    border: 0;
+    color: #398f14;
+}
+footer button, footer input[type="submit"]  {
 	background: #ea6a24;
 	color: #fff;
 	font-size: 12px;

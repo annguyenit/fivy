@@ -25,6 +25,7 @@ add_action( 'wp_feed_options', 'do_not_cache_feeds' );
 // setting schedule for importation
 add_filter('cron_schedules', 'mp_deals_importer_time');
 
-mp_deals_importer_do(); // for test
+//mp_deals_importer_do(); // for test
+
 // Page setting for plugin
 include_once('option.php');

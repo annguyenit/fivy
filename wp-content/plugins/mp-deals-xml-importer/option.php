@@ -7,21 +7,16 @@ function mp_deal_importer_option_page() {
 add_action('admin_init','mp_deal_importer_setting');
 
 function mp_deal_importer_setting() {
-//    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url');
-//	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-nudeal');
-//	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-dealdonkey');
-//	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url2');
-
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-food');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-food-max');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-fun');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-fun-max');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-vacation');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-vacation-max');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-gadgets');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-gadgets-max');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-smallvacation');
-	register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-smallvacation-max');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-food');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-food-max');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-fun');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-fun-max');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-vacation');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-vacation-max');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-gadgets');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-gadgets-max');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-smallvacation');
+    register_setting('mp-fb-deal-importer','mp-getdeal-feed-url-smallvacation-max');
 
     register_setting('mp-fb-deal-importer','mp-deal-importer-enable');
     register_setting('mp-fb-deal-importer','mp-deal-importer-time');

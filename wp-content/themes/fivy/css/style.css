@@ -659,6 +659,8 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
     text-transform: uppercase;
 }
 
+.great-deals .coupon-inner .timer.expire{background:#d22500}
+
 .great-deals .coupon-inner .top-tag {
 	display: inline-block;
 	width: 100%;

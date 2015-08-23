@@ -190,7 +190,7 @@ function display_count_down(countdown, object)
 {
     if (countdown < 0) {
         object.addClass("expire");
-        object.text("<span>DEZE DEAL IS VERLOPEN</span>");
+        object.html("<span>DEZE DEAL IS VERLOPEN</span>");
     }
     else {
         var secs = countdown % 60;

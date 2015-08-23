@@ -89,7 +89,7 @@ function get_five_deal_home($exclude_id = 0){
 }
 
 
-function get_time_remain($end_time){
+function get_time_remain($end_time, $end_date){
     if(empty($end_time) || is_null($end_time)){
         return "";
     }
@@ -99,19 +99,22 @@ function get_time_remain($end_time){
         return "";
     }
     
+    $today = date("Y-m-d H:i:s");
+    $date = $end_date . ' ' . $end_time;
     $total_secs = $time[0] * 3600 + $time[1] * 60 + $time[2];
     
     $html_expire  = "<div data-countdown='-1' class='timer'></div>";
     $current_time = explode(SEPARATE_TIME, date('H:i:s', time()));
     $total_secs_current = $current_time[0] * 3600 + $current_time[1] * 60 + $current_time[2];
-    if($total_secs_current > $total_secs){
+    
+    if($today > $date){
         return $html_expire;
     }else{
         $hour = $time[0] - $current_time[0];
         $mins = $time[1] - $current_time[1];
         $secs = $time[2] - $current_time[2];
     }    
-    //var_dump($time, $current_time);die;
+
     $total_secs -= $total_secs_current;
     return "<div data-countdown='{$total_secs}' class='timer'>nog: <span class='remain_hour'>{$hour}</span> uur <span class='remain_minute'>{$mins}</span> min <span class='remain_second'>{$secs}</span> sec</div>";
 }

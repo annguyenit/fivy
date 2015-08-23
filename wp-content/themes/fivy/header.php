@@ -50,7 +50,7 @@
       <!--======= LOGO =========-->
       <div class="logo">
           <?php if (isset($fivy_options['logo']['url'])): ?>
-          <a href="#."><img src="<?php echo esc_url( $fivy_options['logo']['url'] ); ?>" alt=""></a>
+          <a href="<?php echo site_url() ?>"><img src="<?php echo esc_url( $fivy_options['logo']['url'] ); ?>" alt=""></a>
           <?php endif; ?>
           <div class="fb-like" data-href="<?php echo $fivy_options["header_fb_like"]?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>

@@ -610,7 +610,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
     padding: 0 25px;
 }
 
-.home .great-deals .coupon-inner .eten {
+.great-deals .coupon-inner .eten {
 	width: 132px;
 	float: left;
 	display: inline-block;
@@ -621,7 +621,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	padding-right: 15px;
 }
 
-.home .great-deals .coupon-inner .eten span{    
+.great-deals .coupon-inner .eten span{    
     display: inline-block;
     line-height: 24px;
     width: 100%;
@@ -629,18 +629,12 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
     text-align: left;
 }
 
-.home .great-deals .deal_1 .eten span{background: #ea6a24;}
-.home .great-deals .deal_2 .eten span{background: #33ab12;}
-.home .great-deals .deal_3 .eten span{background: #9900b5;}
-.home .great-deals .deal_4 .eten span{background: #2e2e2d;}
-.home .great-deals .deal_5 .eten span{background: #c1b509;}
+.great-deals .deal_1 .eten span{background: #ea6a24;}
+.great-deals .deal_2 .eten span{background: #33ab12;}
+.great-deals .deal_3 .eten span{background: #9900b5;}
+.great-deals .deal_4 .eten span{background: #2e2e2d;}
+.great-deals .deal_5 .eten span{background: #c1b509;}
 
-.great-deals .coupon-inner .eten span {
-	background: #9900b5;
-	line-height: 24px;
-	display: inline-block;
-	width: 100%;
-}
 .great-deals .coupon-inner span span:before {
 	border-color: transparent #fff transparent transparent;
     border-style: solid;

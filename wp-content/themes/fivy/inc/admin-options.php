@@ -326,5 +326,27 @@ Redux::setSection($opt_name, array(
     )
 ));
 
-
+Redux::setSection($opt_name, array(
+    'title' => __('Detail Deal', 'redux-framework-demo'),
+    'id' => 'detail_deal',
+    'icon' => 'el el-picture',
+    //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
+    //'subsection' => true,
+    'fields' => array(
+        array(
+            'id' => 'detail_deal_about_deal',
+            'type' => 'text',
+            'title' => __('Text about deal', 'redux-framework-demo'),            
+            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
+            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        ),
+        array(
+            'id' => 'detail_deal_other_deal',
+            'type' => 'text',
+            'title' => __('Text other deal', 'redux-framework-demo'),            
+            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
+            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
+        ),
+   ),    
+));
 

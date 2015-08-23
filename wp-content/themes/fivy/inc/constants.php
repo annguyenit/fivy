@@ -12,3 +12,5 @@ define('TEMPLATE_PATH', get_template_directory());
 define("THEMENAME", 'fivy');
 define("POSTTYPE_DEAL", 'deal');
 define("TAXONOMY_DEAL", 'deal_category');
+
+define("SEPARATE_TIME", ':');

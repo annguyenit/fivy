@@ -1,9 +1,4 @@
 <?php
-
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
 /**
  * send report to email when has problem or notification when import data
  * @param string $data
@@ -238,9 +233,9 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     update_post_meta($deal_id, "our_price", (float) $dealData->minimum_price);
     // update_post_meta($deal_id, "coupon_type", 1); // for what?
     update_post_meta($deal_id, "coupon_link", (string) $dealData->link);
-    update_post_meta($deal_id, "coupon_start_date_time", $start_time);
-    update_post_meta($deal_id, "coupon_end_date_time", $end_time);
-    update_post_meta($deal_id, "coupon_end_date_timef", $end_time);
+    update_post_meta($deal_id, "coupon_start_date_time", date('Y-m-d H:i:s', $start_time));
+    update_post_meta($deal_id, "coupon_end_date_time", date('Y-m-d H:i:s', $end_time));
+    update_post_meta($deal_id, "coupon_end_date_timef", date('Y-m-d H:i:s', $end_time));
     $image_file = empty($dealData->img_medium) ? (string) $dealData->img_small : (string) $dealData->img_medium;
     update_post_meta($deal_id, "file_name", $image_file);
     // update_post_meta($deal_id, "is_expired", '0'); // for what ?

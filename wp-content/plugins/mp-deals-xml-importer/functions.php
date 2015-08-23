@@ -211,6 +211,7 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
  * @return none
  */
 function update_deal_meta_data($deal_id, $dealData, $dealType) {
+    /* // BACKUP
     $start_time = strtotime((string) $dealData->offer_valid_from_date);
     $end_time = strtotime((string) $dealData->offer_valid_from_date);
     // nu deal
@@ -225,6 +226,18 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
         $start_time = strtotime(date('Y-m-d 00:00:00'));
         $end_time = strtotime((string) $dealData->time_end);
     }
+     */
+    $start = strval($dealData->start_date);
+    $formatedStart= DateTime::createFromFormat('d/m/Y', $start) ;
+    $startDate = $formatedStart->format('Y-m-d');
+    $startTime = strval($dealData->start_time);
+    $endDate = strval($dealData->end_date);
+    $endTime = strval($dealData->end_time);
+    if (!empty($dealData->total_seconds_left) && intval($dealData->total_seconds_left) > 0) {
+        $endUnix = intval($dealData->total_seconds_left) + time();
+        $endDate = date('Y-m-d', $endUnix);
+        $endTime = date('H:i:s', $endUnix);
+    }
 
     update_post_meta($deal_id, "status", '2');
     // update_post_meta($deal_id, "is_show", '1'); // show on home ?
@@ -233,9 +246,13 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     update_post_meta($deal_id, "our_price", (float) $dealData->minimum_price);
     // update_post_meta($deal_id, "coupon_type", 1); // for what?
     update_post_meta($deal_id, "coupon_link", (string) $dealData->link);
-    update_post_meta($deal_id, "coupon_start_date_time", date('Y-m-d H:i:s', $start_time));
-    update_post_meta($deal_id, "coupon_end_date_time", date('Y-m-d H:i:s', $end_time));
-    update_post_meta($deal_id, "coupon_end_date_timef", date('Y-m-d H:i:s', $end_time));
+    update_post_meta($deal_id, "coupon_start_date_time", $startDate);
+    update_post_meta($deal_id, "coupon_time_start", $startTime);
+    update_post_meta($deal_id, "coupon_end_date_time", $endDate);
+    update_post_meta($deal_id, "coupon_time_end", $endTime);
+//    update_post_meta($deal_id, "coupon_start_date_time", date('Y-m-d H:i:s', $start_time));
+//    update_post_meta($deal_id, "coupon_end_date_time", date('Y-m-d H:i:s', $end_time));
+    update_post_meta($deal_id, "coupon_end_date_timef", $endDate.' '.$endTime);
     $image_file = empty($dealData->img_medium) ? (string) $dealData->img_small : (string) $dealData->img_medium;
     update_post_meta($deal_id, "file_name", $image_file);
     // update_post_meta($deal_id, "is_expired", '0'); // for what ?

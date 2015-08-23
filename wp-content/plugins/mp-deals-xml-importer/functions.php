@@ -229,11 +229,10 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
         $start_time = strtotime(date('Y-m-d 00:00:00'));
         $end_time = strtotime((string) $dealData->time_end);
     }
-    
 
     update_post_meta($deal_id, "status", '2');
-    update_post_meta($deal_id, "is_show", '1'); // show on home ?
-    // update_post_meta($deal_id, "owner_name", 'Boekvandaag.nl'); // or Nu Deal/Dealdonkey
+    // update_post_meta($deal_id, "is_show", '1'); // show on home ?
+    update_post_meta($deal_id, "owner_name", $dealType);
     update_post_meta($deal_id, "current_price", (float) $dealData->maximum_price);
     update_post_meta($deal_id, "our_price", (float) $dealData->minimum_price);
     // update_post_meta($deal_id, "coupon_type", 1); // for what?
@@ -241,7 +240,7 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     update_post_meta($deal_id, "coupon_start_date_time", $start_time);
     update_post_meta($deal_id, "coupon_end_date_time", $end_time);
     update_post_meta($deal_id, "coupon_end_date_timef", $end_time);
-    $image_file = empty($dealData->img_medium) ? (string) $dealData->img_medium : (string) $dealData->img_small;
+    $image_file = empty($dealData->img_medium) ? (string) $dealData->img_small : (string) $dealData->img_medium;
     update_post_meta($deal_id, "file_name", $image_file);
     // update_post_meta($deal_id, "is_expired", '0'); // for what ?
     wp_set_object_terms($deal_id, isset($dealData->category) ? (array) $dealData->category : $dealType, 'deal_category', true);

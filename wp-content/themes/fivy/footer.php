@@ -18,7 +18,7 @@
         ?>
         </li>
         <li class="col-sm-4">
-          <div class="fb-page" data-href="https://www.facebook.com/fivydeals" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="https://www.facebook.com/fivydeals"><a href="https://www.facebook.com/fivydeals">Fivy</a></blockquote></div></div>
+          <div class="fb-page" data-href="<?php echo $fivy_options["footer-text-fb-id"]?>" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" data-show-posts="false"><div class="fb-xfbml-parse-ignore"><blockquote cite="<?php echo $fivy_options["footer-text-fb-id"]?>"><a href="<?php echo $fivy_options["footer-text-fb-id"]?>">Fivy</a></blockquote></div></div>
         </li>
         <li class="col-sm-4">
           <div class="subcribe">

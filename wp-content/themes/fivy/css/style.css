@@ -609,8 +609,9 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
     text-align: center;
     padding: 0 25px;
 }
-.great-deals .coupon-inner .eten {
-	width: 115px;
+
+.home .great-deals .coupon-inner .eten {
+	width: 132px;
 	float: left;
 	display: inline-block;
 	text-transform: uppercase;
@@ -619,73 +620,22 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	font-size: 12px;
 	padding-right: 15px;
 }
+
+.home .great-deals .coupon-inner .eten span{    
+    display: inline-block;
+    line-height: 24px;
+    width: 100%;
+    padding-left: 15px;
+    text-align: left;
+}
+
+.home .great-deals .deal_1 .eten span{background: #ea6a24;}
+.home .great-deals .deal_2 .eten span{background: #33ab12;}
+.home .great-deals .deal_3 .eten span{background: #9900b5;}
+.home .great-deals .deal_4 .eten span{background: #2e2e2d;}
+.home .great-deals .deal_5 .eten span{background: #c1b509;}
+
 .great-deals .coupon-inner .eten span {
-	background: #ea6a24;
-	line-height: 24px;
-	display: inline-block;
-	width: 100%;
-}
-
-.great-deals .coupon-inner .fun {
-	width: 115px;
-	float: left;
-	display: inline-block;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fff;
-	font-size: 12px;
-	padding-right: 15px;
-}
-.great-deals .coupon-inner .fun span {
-	background: #33ab12;
-	line-height: 24px;
-	display: inline-block;
-	width: 100%;
-}
-.great-deals .coupon-inner .gadget {
-	width: 115px;
-	float: left;
-	display: inline-block;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fff;
-	font-size: 12px;
-	padding-right: 15px;
-}
-.great-deals .coupon-inner .gadget span {
-	background: #2f2f2f;
-	line-height: 24px;
-	display: inline-block;
-	width: 100%;
-}
-.great-deals .coupon-inner .tussenuit {
-	width: 115px;
-	float: left;
-	display: inline-block;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fff;
-	font-size: 12px;
-	padding-right: 15px;
-}
-.great-deals .coupon-inner .tussenuit span {
-	background: #c1b509;
-	line-height: 24px;
-	display: inline-block;
-	width: 100%;
-}
-
-.great-deals .coupon-inner .vakantie {
-	width: 115px;
-	float: left;
-	display: inline-block;
-	text-transform: uppercase;
-	text-align: center;
-	color: #fff;
-	font-size: 12px;
-	padding-right: 15px;
-}
-.great-deals .coupon-inner .vakantie span {
 	background: #9900b5;
 	line-height: 24px;
 	display: inline-block;
@@ -698,7 +648,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
     content: "";
     display: inline-block;
     height: 0;
-    left: 87px;
+    left: 104px;
     margin-right: 5px;
     position: absolute;
     vertical-align: middle;

@@ -12,6 +12,7 @@ if (!class_exists('Redux')) {
 // This is your option name where all the Redux data is stored.
 $opt_name = "fivy_options";
 
+$term_deal = get_option_terms();
 
 $theme = wp_get_theme(); // For use with some settings. Not necessary.
 
@@ -145,12 +146,18 @@ Redux::setSection($opt_name, array(
             'title' => __('Logo', 'redux-framework-demo'),
             'subtitle' => __('The logo', 'redux-framework-demo'),
             'desc' => __('Update logo image', 'redux-framework-demo'),
-        )
+        ),
+        
+        array(
+            'id' => 'header_fb_like',
+            'type' => 'text',
+            'title' => __('URL Facebook like page', 'redux-framework-demo')
+        ),
     )
 ));
 
 Redux::setSection($opt_name, array(
-    'title' => __('Footer text block', 'redux-framework-demo'),
+    'title' => __('Footer', 'redux-framework-demo'),
     'id' => 'footer-text-block',
     'icon' => 'el el-picture',
     //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
@@ -174,13 +181,19 @@ Redux::setSection($opt_name, array(
         array(
             'id' => 'footer-text-block-form',
             'type' => 'text',
-            'title' => __('Form', 'redux-framework-demo')
+            'title' => __('ID contact form', 'redux-framework-demo')
+        ),
+        
+        array(
+            'id' => 'footer-text-fb-id',
+            'type' => 'text',
+            'title' => __('Url facebook', 'redux-framework-demo')
         ),
     )
 ));
 
 Redux::setSection($opt_name, array(
-    'title' => __('Sponsor block', 'redux-framework-demo'),
+    'title' => __('Sponsor block home', 'redux-framework-demo'),
     'id' => 'sponsor-block',
     'icon' => 'el el-picture',
     //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
@@ -208,141 +221,108 @@ Redux::setSection($opt_name, array(
             'type' => 'text',
             'title' => __('Button url', 'redux-framework-demo'),
         ),
+        
+        array(
+            'id' => 'sponsor-button-url',
+            'type' => 'text',
+            'title' => __('Button url', 'redux-framework-demo'),
+        ),
+        
+        array(
+            'id' => 'sponsor-google-client',
+            'type' => 'text',
+            'title' => __('Google ads client', 'redux-framework-demo'),
+        ),
+        
+        array(
+            'id' => 'sponsor-google-slot',
+            'type' => 'text',
+            'title' => __('Google ads slot', 'redux-framework-demo'),
+        ),
+        
+        array(
+            'id' => 'sponsor-google-width',
+            'type' => 'text',
+            'title' => __('Google ads width', 'redux-framework-demo'),
+        ),
+        
+         array(
+            'id' => 'sponsor-google-height',
+            'type' => 'text',
+            'title' => __('Google ads height', 'redux-framework-demo'),
+        ),
     )
 ));
 
 
 Redux::setSection($opt_name, array(
-    'title' => __('Defined', 'redux-framework-demo'),
+    'title' => __('Deal block home', 'redux-framework-demo'),
     'id' => 'define',
     'icon' => 'el el-picture',
     //'desc' => __('For full documentation on this field, visit: ', 'redux-framework-demo') . '<a href="http://docs.reduxframework.com/core/fields/gallery/" target="_blank">http://docs.reduxframework.com/core/fields/gallery/</a>',
     //'subsection' => true,
     'fields' => array(
         array(
-            'id' => 'litmit_bg_home',
+            'id' => 'home_title',
             'type' => 'text',
-            'title' => __('Limit background home', 'redux-framework-demo'),
+            'title' => __('Title Deal', 'redux-framework-demo'),            
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'litmit_document_pdf_link',
+            'id' => 'home_button_deal',
             'type' => 'text',
-            'title' => __('Limit document pdf link', 'redux-framework-demo'),
+            'title' => __('Text button detail deal', 'redux-framework-demo'),            
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'litmit_service_page',
-            'type' => 'text',
-            'title' => __('Limit services page', 'redux-framework-demo'),
+            'id' => 'home_deal_cat1',
+            'type' => 'select',
+            'title' => __('Category Deal 1', 'redux-framework-demo'),
+            'options' => $term_deal,
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'litmit_desc_services',
-            'type' => 'text',
-            'title' => __('Limit Description services', 'redux-framework-demo'),
+            'id' => 'home_deal_cat2',
+            'type' => 'select',
+            'title' => __('Category Deal 2', 'redux-framework-demo'),
+            'options' => $term_deal,
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'litmit_actualies_page',
-            'type' => 'text',
-            'title' => __('Limit actualies page', 'redux-framework-demo'),
+            'id' => 'home_deal_cat3',
+            'type' => 'select',
+            'title' => __('Category Deal 3', 'redux-framework-demo'),
+            'options' => $term_deal,
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'litmit_desc_actualies',
-            'type' => 'text',
-            'title' => __('Limit Description actualies', 'redux-framework-demo'),
+            'id' => 'home_deal_cat4',
+            'type' => 'select',
+            'title' => __('Category Deal 4', 'redux-framework-demo'),
+            'options' => $term_deal,
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
+        
         array(
-            'id' => 'list_filter_actualies',
-            'type' => 'multi_text',
-            'title' => __('List filter actualites', 'redux-framework-demo'),
+            'id' => 'home_deal_cat5',
+            'type' => 'select',
+            'title' => __('Category Deal 5', 'redux-framework-demo'),
+            'options' => $term_deal,
             //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
             //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
         ),
-
-        array(
-            'id' => 'list_source',
-            'type' => 'multi_text',
-            'title' => __('List source', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
-        array(
-            'id' => 'litmit_annonces_page',
-            'type' => 'text',
-            'title' => __('Limit annonces page', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
-        array(
-            'id' => 'list_filter_actualies',
-            'type' => 'multi_text',
-            'title' => __('List filter actualites', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
-        array(
-            'id' => 'list_sort_annonces',
-            'type' => 'multi_text',
-            'title' => __('List sort annoncess', 'redux-framework-demo'),
-
-        ),
-        array(
-            'id' => 'chart1',
-            'type' => 'media',
-            'title' => __('Images chart 1', 'redux-framework-demo'),
-
-        ),
-        array(
-            'id' => 'chart2',
-            'type' => 'media',
-            'title' => __('Images chart 2', 'redux-framework-demo'),
-
-        ),
-
-
-        array(
-            'id' => 'litmit_sync_data',
-            'type' => 'text',
-            'title' => __('Limit Synchronize data', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
-
-         array(
-            'id' => 'animation_image',
-            'type' => 'text',
-            'title' => __('Animation Image timeout', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-          array(
-            'id' => 'animation_text',
-            'type' => 'text',
-            'title' => __('Animation Image text timeout', 'redux-framework-demo'),
-            //'subtitle' => __('Create a new Gallery by selecting existing or uploading new images using the WordPress native uploader', 'redux-framework-demo'),
-            //'desc' => __('This is the description field, again good for additional info.', 'redux-framework-demo'),
-        ),
-
+        
     )
 ));
 

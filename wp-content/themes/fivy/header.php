@@ -32,7 +32,7 @@
     <![endif]-->
     <?php wp_head(); ?>
 </head>
-<body>
+<body <?php body_class(); ?>>
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
  var js, fjs = d.getElementsByTagName(s)[0];
@@ -52,7 +52,7 @@
           <?php if (isset($fivy_options['logo']['url'])): ?>
           <a href="#."><img src="<?php echo esc_url( $fivy_options['logo']['url'] ); ?>" alt=""></a>
           <?php endif; ?>
-          <div class="fb-like" data-href="https://developers.facebook.com/docs/plugins/" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
+          <div class="fb-like" data-href="<?php echo $fivy_options["header_fb_like"]?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>
       </div>
     </div>
 

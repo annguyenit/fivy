@@ -9,7 +9,8 @@ add_action('admin_init','mp_fb_poster_setting');
 function mp_fb_poster_setting() {
     register_setting('mp-fb-deal-poster','mp-getdeal-fb-app-key');
     register_setting('mp-fb-deal-poster','mp-getdeal-fb-app-secret');    
-    register_setting('mp-fb-deal-poster','mp-getdeal-fanpage-id');    
+    register_setting('mp-fb-deal-poster','mp-getdeal-fanpage-id');
+    register_setting('mp-fb-deal-poster','mp-getdeal-access-token');
 	register_setting('mp-fb-deal-poster','mp-enable-fb-deal-poster');    
 	register_setting('mp-fb-deal-poster','mp-fb-deal-poster-time');    	
 }
@@ -59,7 +60,7 @@ function mp_fb_poster_setting_page() {
 			<p>Facebook App Secret<br/><input type="text" size="50" value="<?php echo get_option('mp-getdeal-fb-app-secret'); ?>" name="mp-getdeal-fb-app-secret" /></p>
 			<p>Current Account</p>
 			<?php 
-			if(!get_option('mp-getdeal-userid') || !get_option('mp-getdeal-access-token'))
+			/*if(!get_option('mp-getdeal-userid') || !get_option('mp-getdeal-access-token'))
 			{
 				$params = array('scope' => 'manage_pages,publish_stream,offline_access','redirect_uri'=> get_option('home').'/wp-admin/options-general.php?page=facebook-deal-poster-options');
 			?>
@@ -77,9 +78,10 @@ function mp_fb_poster_setting_page() {
 				?>
 				<p><img src="http://graph.facebook.com/<?php echo $fb_id; ?>/picture" alt="<?php echo $fbme['name']; ?>" style="vertical-align: middle;height: 32px;width: 32px;"/> <strong><?php echo $fbme['name']; ?></strong> (<a href="<?php echo $logoutUrl;?>">Click here to disconnect</a>)</p
 				<?php
-			}
+			}*/
 			?>
 			<p>Fanpage ID<br/><input type="text" value="<?php echo get_option('mp-getdeal-fanpage-id'); ?>" name="mp-getdeal-fanpage-id" /></p>
+                        <p>Access Token<br/><input type="text" value="<?php echo get_option('mp-getdeal-access-token'); ?>" name="mp-getdeal-access-token" /></p>
 			<p>Schedule Time<br/>
 			<select name="mp-fb-deal-poster-time" id="mp-fb-deal-poster-time">			
 				<option value="3600"<?php if(get_option('mp-fb-deal-poster-time') == '3600') echo ' selected'; ?>>1 hours</option>				

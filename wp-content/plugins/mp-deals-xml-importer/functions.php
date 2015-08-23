@@ -192,11 +192,12 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
                     $total ++;
                     // update post meta
                     update_deal_meta_data($post_id, $post, $dealType);
+
                     /*
-                      if(function_exists('mp_getdeal_post_on_fb')) {
-                      $p = query_posts("p=$post_id&post_type=$post_type");
-                      mp_getdeal_post_on_fb($p,$post->img_medium);
-                      }
+                    if (function_exists('mp_getdeal_post_on_fb')) {
+                        $p = query_posts("p=$post_id&post_type=$post_type");
+                        mp_getdeal_post_on_fb($p, $post->img_medium);
+                    }
                      */
                 }
                 $array_post_id[] = $post_id;

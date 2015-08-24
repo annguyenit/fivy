@@ -10,10 +10,11 @@
   Copyright 2013 GetDeals
  */
 require_once(plugin_dir_path(__FILE__) . 'inc/facebook.php');
-
+//https://developers.facebook.com/tools/explorer/1013025405421883/
+//https://developers.facebook.com/docs/reference/php/5.0.0
 $facebook = new Facebook(array(
-    'appId' => '377396015793096',
-    'secret' => 'b08efc34bed5bce40b17d12c0afc4a23',
+    'appId' => '1013025405421883',
+    'secret' => '1d0a102513f30d01d4b9d17fe85b3c18',
         ));
 
 //Hoook
@@ -44,10 +45,10 @@ function mp_fb_poster_deactivation() {
 add_action('mp_fb_poster_hook', 'mp_fb_poster_do');
 
 function mp_fb_poster_hook() {
-    if (time() - (int) get_option('mp-deal-poster-last-run') < get_option('mp-fb-deal-poster-time', 7200))
-        return;
+    //if (time() - (int) get_option('mp-deal-poster-last-run') < get_option('mp-fb-deal-poster-time', 7200))
+    //    return;
 
-    $last_id = get_option('mp-fb-deal-poster-last-id');
+    $last_id = -1;//get_option('mp-fb-deal-poster-last-id');
     $next_id = mp_get_next_id($last_id);
 
     if (!$next_id || $next_id == $last_id)
@@ -56,6 +57,7 @@ function mp_fb_poster_hook() {
     $post = get_post($next_id);
 
     if (!empty($post)) {
+
         mp_getdeal_post_on_fb($post);
     }
     update_option('mp-deal-poster-last-run', time());
@@ -77,9 +79,9 @@ function mp_get_next_id($last_id = 0, $post_type = 'deal') {
 function mp_getdeal_post_on_fb($post, $picUrl = null) {
     if (get_option('mp-enable-fb-deal-poster') == 'YES') {
         global $facebook;
-        $user_id = get_option('mp-getdeal-fanpage-id');
-        $user_token = get_option('mp-getdeal-access-token');
-        
+        $user_id = 'fivysandbox';//get_option('mp-getdeal-fanpage-id');
+        $user_token = 'CAAOZAV1twSTsBAKUfRP85oZAohIjAazIpkbMCxO5fM7c4CXkZAzJXg9LveV8kZB9yG51loiJTpsNJZCFb38S7jFlWXHUPeTnUjD45NHmgonA1FbIxpx0PhxusFoEoktavaJ3q2RzZCYMtgG0CsD4yZBInGzpsm77Rt9nZBerUsnXUCJZAQ2B3x8bkqNh8BZARar5gvbmLYrT8yAgZDZD';//;get_option('mp-getdeal-access-token');
+
         if (!$facebook || !$user_id || !$user_token)
             return false;
         $facebook->setAccessToken($user_token);
@@ -98,6 +100,7 @@ function mp_getdeal_post_on_fb($post, $picUrl = null) {
         } else {
             $deal['picture'] = get_template_directory_uri() . "/images/b-img-1.jpg";
         }
+
         $facebook->api('/' . $user_id . '/feed', 'POST', $deal);
 
         /*if (get_option('mp-getdeal-fanpage-id') != '' && get_option('mp-getdeal-page-access-token') != '') {
@@ -106,6 +109,7 @@ function mp_getdeal_post_on_fb($post, $picUrl = null) {
             $kq = $facebook->api('/' . $fanpage . '/feed', 'POST', $deal);
         }*/
         update_option('mp-fb-deal-poster-last-id', $post->ID);
+        var_dump("finish");die;var_dump("adasd");die;
     }
 }
 
@@ -160,5 +164,5 @@ add_action('wp_head', 'mp_insert_image_src_rel_in_head', 5);
 
 //Options Page
 include_once('option.php');
-
+mp_fb_poster_hook();
 ?>

@@ -138,7 +138,7 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
 
     // get data
     $xml = @simplexml_load_file($url, null, LIBXML_NOCDATA);
-    
+
     if (!$xml) {
         return false;
     }
@@ -247,14 +247,14 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     // update_post_meta($deal_id, "coupon_type", 1); // for what?
     update_post_meta($deal_id, "coupon_link", (string) $dealData->link);
     update_post_meta($deal_id, "coupon_start_date_time", $startDate);
-    update_post_meta($deal_id, "coupon_time_start", $startTime);
+    update_post_meta($deal_id, "coupon_start_time", $startTime);
     update_post_meta($deal_id, "coupon_end_date_time", $endDate);
-    update_post_meta($deal_id, "coupon_time_end", $endTime);
+    update_post_meta($deal_id, "coupon_end_time", $endTime);
 //    update_post_meta($deal_id, "coupon_start_date_time", date('Y-m-d H:i:s', $start_time));
 //    update_post_meta($deal_id, "coupon_end_date_time", date('Y-m-d H:i:s', $end_time));
     update_post_meta($deal_id, "coupon_end_date_timef", $endDate.' '.$endTime);
     $image_file = empty($dealData->img_medium) ? (string) $dealData->img_small : (string) $dealData->img_medium;
     update_post_meta($deal_id, "file_name", $image_file);
     // update_post_meta($deal_id, "is_expired", '0'); // for what ?
-    wp_set_object_terms($deal_id, isset($dealData->category) ? (array) $dealData->category : $dealType, 'deal_category', true);
+    wp_set_object_terms($deal_id, strtolower($dealType), 'deal_category', true);
 }

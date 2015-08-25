@@ -104,7 +104,6 @@ function mp_deals_importer_all_deals() {
     $foodUrl = get_option('mp-getdeal-feed-url-food');
     $maxFoodDeal = intval(get_option('mp-getdeal-feed-url-food-max'));
     mp_deals_importer_type_of_deal($foodUrl, $maxFoodDeal, 'Eten');
-
     // import fun deals
     $funUrl = get_option('mp-getdeal-feed-url-fun');
     $maxFunDeal = intval(get_option('mp-getdeal-feed-url-fun-max'));
@@ -119,7 +118,6 @@ function mp_deals_importer_all_deals() {
     $gadgetUrl = get_option('mp-getdeal-feed-url-gadgets');
     $maxGadgetDeal = intval(get_option('mp-getdeal-feed-url-gadgets-max'));
     mp_deals_importer_type_of_deal($gadgetUrl, $maxGadgetDeal, 'Gadget');
-
     // import small vacation deals
     $smallUrl = get_option('mp-getdeal-feed-url-smallvacation');
     $maxSmallDeal = intval(get_option('mp-getdeal-feed-url-smallvacation-max'));
@@ -142,7 +140,6 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
     if (!$xml) {
         return false;
     }
-
     global $user_ID;
     $post_type = 'deal';
     $array_post_id = array();
@@ -152,23 +149,23 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
             return false;
         }
 
-        foreach ($xml->item as $post) {
+        foreach ($xml->item as $deal) {
             if ($total == $maxDeal) {
                 break;
             }
 
-            $trim_title = trim($post->title);
+            $trim_title = trim($deal->title);
             $title_str = esc_attr(htmlspecialchars($trim_title));
             $check = get_page_by_title($title_str, 'ARRAY_A', $post_type);
             if (empty($check)) {
-                $post_desc = isset($post->description) ? $post->description : '';
-                $post_commodation_desc = isset($post->accommodation_description) ? $post->accommodation_description : '';
+                $post_desc = isset($deal->description) ? $deal->description : '';
+                $post_commodation_desc = isset($deal->accommodation_description) ? $deal->accommodation_description : '';
                 $content = html_entity_decode($post_desc, ENT_QUOTES, 'UTF-8');
                 $content .= empty($post_commodation_desc) ? '' : '<br/>' . html_entity_decode($post_commodation_desc, ENT_QUOTES, 'UTF-8');
-                $content .= empty($post->inclusief) ? '' : '<br/>' . html_entity_decode($post->inclusief, ENT_QUOTES, 'UTF-8');
+                $content .= empty($deal->inclusief) ? '' : '<br/>' . html_entity_decode($deal->inclusief, ENT_QUOTES, 'UTF-8');
 
                 $new_post = array(
-                    'post_title' => $post->title,
+                    'post_title' => (string)$deal->title,
                     'post_content' => $content,
                     'post_status' => 'publish',
                     'post_date' => date('Y-m-d H:i:s'),
@@ -176,7 +173,6 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
                     'post_type' => $post_type,
                     'filter' => true
                 );
-
                 //remove_filter('content_save_pre', 'wp_filter_post_kses');
                 //remove_filter('content_filtered_save_pre', 'wp_filter_post_kses');
                 $post_id = wp_insert_post($new_post);
@@ -186,12 +182,11 @@ function mp_deals_importer_type_of_deal($url = '', $maximumImportDeal = 0, $deal
                 if ($post_id) {
                     $total ++;
                     // update post meta
-                    update_deal_meta_data($post_id, $post, $dealType);
-
+                    update_deal_meta_data($post_id, $deal, $dealType);
                     /*
                     if (function_exists('mp_getdeal_post_on_fb')) {
                         $p = query_posts("p=$post_id&post_type=$post_type");
-                        mp_getdeal_post_on_fb($p, $post->img_medium);
+                        mp_getdeal_post_on_fb($p, $deal->img_medium);
                     }
                      */
                 }
@@ -228,11 +223,11 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     }
      */
     $start = strval($dealData->start_date);
-    $formatedStart= DateTime::createFromFormat('d/m/Y', $start) ;
-    $startDate = $formatedStart->format('Y-m-d');
-    $startTime = strval($dealData->start_time);
-    $endDate = strval($dealData->end_date);
-    $endTime = strval($dealData->end_time);
+    $formatedStart= DateTime::createFromFormat('d/m/Y', $start);
+    $startDate = empty($start) ? '' : $formatedStart->format('Y-m-d');
+    $startTime = empty(strval($dealData->start_time)) ? '' : strval($dealData->start_time);
+    $endDate = empty(strval($dealData->end_date)) ? '' : strval($dealData->end_date);
+    $endTime = empty(strval($dealData->end_time)) ? '' : strval($dealData->end_time);
     if (!empty($dealData->total_seconds_left) && intval($dealData->total_seconds_left) > 0) {
         $endUnix = intval($dealData->total_seconds_left) + time();
         $endDate = date('Y-m-d', $endUnix);
@@ -257,4 +252,14 @@ function update_deal_meta_data($deal_id, $dealData, $dealType) {
     update_post_meta($deal_id, "file_name", $image_file);
     // update_post_meta($deal_id, "is_expired", '0'); // for what ?
     wp_set_object_terms($deal_id, strtolower($dealType), 'deal_category', true);
+}
+
+
+add_action( 'wp_ajax_update_deal_daily', 'function_update_deal_daily' );
+add_action( 'wp_ajax_nopriv_update_deal_daily', 'function_update_deal_daily' );
+
+function function_update_deal_daily(){
+
+    mp_deals_importer_all_deals();
+    var_dump("finish"); die;
 }

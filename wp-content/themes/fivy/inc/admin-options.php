@@ -227,6 +227,20 @@ Redux::setSection($opt_name, array(
             'type' => 'text',
             'title' => __('Button url', 'redux-framework-demo'),
         ),
+		
+		array(
+            'id' => 'sponsor-google-active',
+            'type' => 'select',
+			'options' => array(1 => "Yes", 0 => "No"),
+            'title' => __('Show google Ads', 'redux-framework-demo'),
+        ),
+		
+		array(
+            'id' => 'sponsor-google-image',
+            'type' => 'media',
+            'title' => __('Goole image', 'redux-framework-demo'),
+            'desc' => __('This image will replace google ads if field "Show google Ads" is "No"', 'redux-framework-demo'),
+        ),
         
         array(
             'id' => 'sponsor-google-client',

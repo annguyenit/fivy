@@ -34,7 +34,7 @@ $deals = get_five_deal_home($exclude_id);
                     <div class="coupon-inner-detail">
                         <a class="head"><?php echo $fivy_options["detail_deal_about_deal"] ?></a>
                         <p><?php the_content() ?></p>
-                        <div class="text-left"> <a href="#." class="btn"><?php echo $fivy_options["home_button_deal"] ?></a></div>
+                        <div class="text-left"> <a href="<?php echo get_field("coupon_link"); ?>" class="btn"><?php echo $fivy_options["home_button_deal"] ?></a></div>
                     </div>
                 </li>
             </ul>

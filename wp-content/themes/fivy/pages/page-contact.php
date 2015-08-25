@@ -23,7 +23,10 @@ get_header(); ?>
                         <!--======= CONTACT FORM =========-->
                         <div class="col-sm-6">
                             <div id="contact_message" class="success-msg"> <i class="fa fa-paper-plane-o"></i>Thank You. Your Message has been Submitted</div>
-                            <form role="form" id="contact_form" method="post" onSubmit="return false">
+							<div id="contact_form">
+								<?php echo do_shortcode('[contact-form-7 id="68" title="Contact page"]');?>
+							</div>
+                            <!--<form role="form" id="contact_form" method="post" onSubmit="return false">
                                 <ul>
                                     <li>
                                         <input type="text" class="form-control" name="name" id="name" placeholder="Name">
@@ -44,7 +47,7 @@ get_header(); ?>
                                         <button type="submit" value="submit" class="btn" id="btn_submit" onClick="proceed();">SEND MESSAGE</button>
                                     </li>
                                 </ul>
-                            </form>
+                            </form>-->
                         </div>
                         <?php
                         // If comments are open or we have at least one comment, load up the comment template.

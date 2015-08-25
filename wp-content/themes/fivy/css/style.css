@@ -567,7 +567,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 ========================================================*/
 .great-deals {
 	padding: 50px 0;
-	padding-top: 90px;
+	padding-top: 60px ;
 }
 .great-deals .coupon {
 }
@@ -2726,7 +2726,7 @@ header .ownmenu ul.dropdown li:nth-last-child(1) a {
 	height: 50px;
 	padding: 0 20px;
 }
-#contact_form li .form-control {
+#contact_form li .wpcf7-form-control {
 	height: 50px;
 	border: 1px solid #e9eaee;
 	box-shadow: none;
@@ -3224,3 +3224,6 @@ footer .social_icons a {
 	background-color: #35506b;
 	border-color: #35506b;
 }
+
+#wrap > section .wpcf7-form .wpcf7-submit {width:auto!important; padding: 6px 25px!important;}
+.page-template-default .wpcf7 {max-width:450px;}

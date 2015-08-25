@@ -43,6 +43,12 @@
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/own-menu.js"></script>
 <script src="<?php echo esc_url( get_template_directory_uri() ); ?>/js/main.js"></script>
 
+
+<script>
+	jQuery("#wrap > section .wpcf7-form .wpcf7-text,#wrap > section .wpcf7-form .wpcf7-textarea").addClass("form-control");
+	jQuery("#wrap > section .wpcf7-form .wpcf7-submit").addClass("btn");
+	
+</script>
 <?php
 // INIT MAP
 if (get_field('contact_show_map') && get_field('contact_show_map') == 'Yes') {

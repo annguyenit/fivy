@@ -34,7 +34,12 @@ function mp_fb_poster_activation() {
     update_option('mp-deal-poster-last-run', time());
     update_option('mp-fb-deal-poster-time', 7200);
     $max_id = mp_get_next_id(0);
-    update_option('mp-fb-deal-poster-last-id', $max_id);
+    // update_option('mp-fb-deal-poster-last-id', $max_id);
+    update_option('mp-fb-deal-poster-last-id-food', $max_id);
+    update_option('mp-fb-deal-poster-last-id-fun', $max_id);
+    update_option('mp-fb-deal-poster-last-id-vacation', $max_id);
+    update_option('mp-fb-deal-poster-last-id-gadget', $max_id);
+    update_option('mp-fb-deal-poster-last-id-small', $max_id);
 }
 
 function mp_fb_poster_deactivation() {
@@ -44,17 +49,50 @@ function mp_fb_poster_deactivation() {
 add_action('mp_fb_poster_hook', 'mp_fb_poster_do');
 
 function mp_fb_poster_hook() {
+    
     if (time() - (int) get_option('mp-deal-poster-last-run') < get_option('mp-fb-deal-poster-time', 7200)) {
-        return;
+        // return;
     }
 
-    $last_id = get_option('mp-fb-deal-poster-last-id'); //-1;
-    $next_id = mp_get_next_id($last_id);
+    $deal_cat = isset($_GET['dealcat']) ? $_GET['dealcat'] : '';
+    global $fivy_options;
+    switch ($deal_cat) {
+        case 'food':
+            $last_id = 1;//get_option('mp-fb-deal-poster-last-id-food');
+            $deal_cat_id = isset($fivy_options['home_deal_cat1']) ? $fivy_options['home_deal_cat1'] : 0;
+            break;
+        
+        case 'fun':
+            $last_id = get_option('mp-fb-deal-poster-last-id-fun');
+            $deal_cat_id = isset($fivy_options['home_deal_cat2']) ? $fivy_options['home_deal_cat2'] : 0;
+            break;
+        
+        case 'vacation':
+            $last_id = get_option('mp-fb-deal-poster-last-id-vacation');
+            $deal_cat_id = isset($fivy_options['home_deal_cat5']) ? $fivy_options['home_deal_cat5'] : 0;
+            break;
+        
+        case 'gadget':
+            $last_id = get_option('mp-fb-deal-poster-last-id-gadget');
+            $deal_cat_id = isset($fivy_options['home_deal_cat3']) ? $fivy_options['home_deal_cat3'] : 0;
+            break;
+        
+        case 'small':
+            $last_id = get_option('mp-fb-deal-poster-last-id-small');
+            $deal_cat_id = isset($fivy_options['home_deal_cat4']) ? $fivy_options['home_deal_cat4'] : 0;
+            break;
 
-    if (!$next_id || $next_id == $last_id)
+        default: die('Wrong URL');
+            break;
+    }
+    
+    $next_id = mp_get_next_id($last_id, 'deal', $deal_cat_id);
+    
+    if (!$next_id || $next_id == $last_id) {
         return false;
-
+    }
     $post = get_post($next_id);
+    
     if (!empty($post)) {
         mp_getdeal_post_on_fb($post);
     }
@@ -62,13 +100,24 @@ function mp_fb_poster_hook() {
     mp_fb_deal_send_report((int) $next_id . ' at ' . time());
 }
 
-function mp_get_next_id($last_id = 0, $post_type = 'deal') {
+function mp_get_next_id($last_id = 0, $post_type = 'deal', $deal_cat_id = 0) {
     global $wpdb;
     $next_id = 0;
     if ((int) $last_id <= 0) {
         $next_id = $wpdb->get_var("SELECT MAX(ID) FROM $wpdb->posts WHERE post_type = '" . $post_type . "'");
     } else {
-        $next_id = $wpdb->get_var("SELECT ID FROM $wpdb->posts WHERE ID > " . (int) $last_id . " AND post_type = '" . $post_type . "' LIMIT 1");
+        $query = "SELECT $wpdb->posts.ID FROM $wpdb->posts
+	LEFT JOIN $wpdb->postmeta ON($wpdb->posts.ID = $wpdb->postmeta.post_id)
+	LEFT JOIN $wpdb->term_relationships ON($wpdb->posts.ID = $wpdb->term_relationships.object_id)
+	LEFT JOIN $wpdb->term_taxonomy ON($wpdb->term_relationships.term_taxonomy_id = $wpdb->term_taxonomy.term_taxonomy_id)
+	LEFT JOIN $wpdb->terms ON($wpdb->term_taxonomy.term_id = $wpdb->terms.term_id)
+	WHERE $wpdb->terms.term_id = ".$deal_cat_id." 
+	AND $wpdb->term_taxonomy.taxonomy = 'deal_category'
+	AND $wpdb->posts.post_status = 'publish'
+	AND $wpdb->posts.post_type = '".$post_type."'
+	AND $wpdb->posts.ID > " . (int) $last_id." LIMIT 1";
+//        $query = "SELECT ID FROM $wpdb->posts WHERE ID > " . (int) $last_id . " AND post_type = '" . $post_type . "' LIMIT 1";
+        $next_id = $wpdb->get_var($query);
     }
     return (int) $next_id;
 }
@@ -168,6 +217,10 @@ include_once('option.php');
 add_action( 'wp_ajax_post_fb_by_schedule', 'function_post_fb_by_schedule' );
 add_action( 'wp_ajax_nopriv_post_fb_by_schedule', 'function_post_fb_by_schedule' );
 
-function function_post_fb_by_schedule(){
-    mp_fb_poster_hook();
+function function_post_fb_by_schedule() {
+    $status = mp_fb_poster_hook();
+    if (!$status) {
+        die('no new deal found !');
+    }
+    die('post finish');
 }

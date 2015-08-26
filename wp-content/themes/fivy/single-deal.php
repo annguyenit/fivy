@@ -18,8 +18,8 @@ $deals = get_five_deal_home($exclude_id);
             <ul class="row">
                 <!--======= COUPEN DEALS =========-->
                 <li class="col-sm-4">
-                    <div class="coupon-inner">
-                        <div class="top-tag"> <span class="eten"><span><?php echo get_field("owner_name"); ?></span></span></div>
+                    <div class="coupon-inner deal_<?php echo check_index_deal($exclude_id) ?>">
+                        <div class="top-tag"> <span class="eten"><span><?php echo $current_term[0]->name; ?></span></span></div>
                         <div class="c-img">
                             <img class="img-responsive" src="<?php echo get_field("file_name"); ?>" alt="">
                             <a class="head" href="<?php echo get_field("coupon_link"); ?>"><?php the_title() ?></a>
@@ -85,7 +85,7 @@ $deals = get_five_deal_home($exclude_id);
 
                     <li class="col-sm-4">
                         <div class="coupon-inner deal_<?php echo $count++; ?>">
-                            <div class="top-tag"> <span class="eten"><span><?php echo get_field("owner_name", $deal->ID) ?></span></span></div>
+                            <div class="top-tag"> <span class="eten"><span><?php echo get_term_name_by_deal($deal->ID); ?></span></span></div>
                             <div class="c-img">
                                 <img class="img-responsive" src="<?php echo get_field("file_name", $deal->ID); ?>" alt="">
                                 <a class="head" href="<?php echo get_permalink($deal->ID) ?>"><?php echo $deal->post_title ?></a>

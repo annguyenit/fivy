@@ -90,6 +90,8 @@ function get_five_deal_home($exclude_id = 0){
 
 
 function get_time_remain($end_time, $end_date){
+	$end_date = date("Y-m-d");
+	$end_time = "23:59:00";
     if(empty($end_time) || is_null($end_time)){
         return "";
     }
@@ -117,5 +119,26 @@ function get_time_remain($end_time, $end_date){
 
     $total_secs -= $total_secs_current;
     return "<div data-countdown='{$total_secs}' class='timer'>nog: <span class='remain_hour'>{$hour}</span> uur <span class='remain_minute'>{$mins}</span> min <span class='remain_second'>{$secs}</span> sec</div>";
+}
+
+function get_term_name_by_deal($id_deal){
+	$terms = get_the_terms( $id_deal , TAXONOMY_DEAL );
+	if ( $terms != null ){
+		return $terms[0]->name;
+	}
+	 
+	 return "";
+}
+
+function check_index_deal($cat_deal_id){
+	global $fivy_options;
+	for ($i = 1; $i <= 5; $i++) {
+        $cat_id = $fivy_options["home_deal_cat{$i}"];
+        if($cat_id == $cat_deal_id){
+			return $i;
+		}
+    }
+	
+	return 0;
 }
 

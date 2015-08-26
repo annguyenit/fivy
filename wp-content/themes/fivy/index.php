@@ -22,11 +22,12 @@ $deals = get_five_deal_home();
                             $count++;
                             continue;
                         }
+						
                 ?>
                 
                     <li class="col-sm-4">
                         <div class="coupon-inner deal_<?php echo $count++;?>">
-                            <div class="top-tag"> <span class="eten"><span><?php echo get_field( "owner_name", $deal->ID ) ?></span></span></div>
+                            <div class="top-tag"> <span class="eten"><span><?php echo get_term_name_by_deal( $deal->ID ) ?></span></span></div>
                             <div class="c-img">
                                 <a href="<?php echo get_permalink($deal->ID) ?>"><img class="img-responsive" src="<?php echo get_field( "file_name", $deal->ID ); ?>" alt=""></a>
                                 <a class="head" href="<?php echo get_permalink($deal->ID) ?>"><?php echo $deal->post_title?></a>

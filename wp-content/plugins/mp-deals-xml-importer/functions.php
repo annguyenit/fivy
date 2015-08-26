@@ -263,3 +263,12 @@ function function_update_deal_daily(){
     mp_deals_importer_all_deals();
     var_dump("finish"); die;
 }
+
+// Update
+add_action( 'wp_ajax_reset_getdeal_start', 'function_reset_getdeal_start' );
+add_action( 'wp_ajax_nopriv_reset_getdeal_start', 'function_reset_getdeal_start' );
+
+function function_reset_getdeal_start(){
+    update_option('mp-deal-importer-last-run', strtotime("midnight"));
+    die('reset last run to:'.strtotime("midnight"));
+}

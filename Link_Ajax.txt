@@ -1,0 +1,10 @@
+- Get Deal Daily : http://fivy.nl/wp-admin/admin-ajax.php?action=update_deal_daily
+- update time get deal to 00:00:
+
+
+- Auto post fb:
+http://fivy.nl/wp-admin/admin-ajax.php?action=post_fb_by_schedule&dealcat=food
+http://fivy.nl/wp-admin/admin-ajax.php?action=post_fb_by_schedule&dealcat=fun
+http://fivy.nl/wp-admin/admin-ajax.php?action=post_fb_by_schedule&dealcat=vacation
+http://fivy.nl/wp-admin/admin-ajax.php?action=post_fb_by_schedule&dealcat=gadget
+http://fivy.nl/wp-admin/admin-ajax.php?action=post_fb_by_schedule&dealcat=small

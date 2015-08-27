@@ -269,6 +269,8 @@ add_action( 'wp_ajax_reset_getdeal_start', 'function_reset_getdeal_start' );
 add_action( 'wp_ajax_nopriv_reset_getdeal_start', 'function_reset_getdeal_start' );
 
 function function_reset_getdeal_start(){
-    update_option('mp-deal-importer-last-run', strtotime("midnight"));
-    die('reset last run to:'.strtotime("midnight"));
+    $midnight = date('Y-m-d').' 00:00:00';
+
+    update_option('mp-deal-importer-last-run', strtotime($midnight));
+    die('reset last run to:'.$midnight);
 }

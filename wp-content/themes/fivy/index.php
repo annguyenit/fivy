@@ -32,6 +32,10 @@ $deals = get_five_deal_home();
                                 <a href="<?php echo get_permalink($deal->ID) ?>"><img class="img-responsive" src="<?php echo get_field( "file_name", $deal->ID ); ?>" alt=""></a>
                                 <a class="head" href="<?php echo get_permalink($deal->ID) ?>"><?php echo $deal->post_title?></a>
                                 <?php echo get_time_remain(get_field( "coupon_end_time", $deal->ID ), get_field( "coupon_end_date_time", $deal->ID )) ?>
+								<p class="price">
+									<span class='original_price'>€ <?php echo get_field( "current_price", $deal->ID )?></span>
+									<span class="special_price">€ <?php echo get_field( "our_price", $deal->ID )?></span>
+								</p>
                                 <div class="text-center"> <a href="<?php echo get_permalink($deal->ID) ?>" class="btn"><?php echo $fivy_options["home_button_deal"] ?></a></div>
                                 <div class="text-center">
                                     <div class="fb-like" data-href="<?php echo get_permalink($deal->ID) ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>

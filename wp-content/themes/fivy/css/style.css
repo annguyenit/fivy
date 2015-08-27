@@ -3227,3 +3227,17 @@ footer .social_icons a {
 
 #wrap > section .wpcf7-form .wpcf7-submit {width:auto!important; padding: 6px 25px!important;}
 .page-template-default .wpcf7 {max-width:450px;}
+
+.coupon .price{    color: #222222;    font-size: 18px;    font-weight: bold;    margin-top: 25px;    text-align: center;}
+
+.coupon .price .original_price{margin-right: 25px; position:relative;}
+.coupon .price .original_price:before{ background: red none repeat scroll 0 0;
+    content: "";
+    height: 3px;
+    left: -13%;
+    position: absolute;
+    top: 47%;
+    width: 126%;}
+	
+.great-deals .coupon.detail_coupon_deal .col-sm-4,
+.great-deals .coupon.detail_coupon_deal .col-sm-7 {width:100%;float:left;}

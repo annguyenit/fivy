@@ -14,16 +14,20 @@ $deals = get_five_deal_home($exclude_id);
         <div class="tittle left">
             <h1><?php the_title() ?></h1>
         </div>
-        <div class="coupon">
+        <div class="coupon detail_coupon_deal">
             <ul class="row">
                 <!--======= COUPEN DEALS =========-->
                 <li class="col-sm-4">
                     <div class="coupon-inner deal_<?php echo check_index_deal($exclude_id) ?>">
                         <div class="top-tag"> <span class="eten"><span><?php echo $current_term[0]->name; ?></span></span></div>
                         <div class="c-img">
-                            <img class="img-responsive" src="<?php echo get_field("file_name"); ?>" alt="">
+                            <a href="<?php echo get_field("coupon_link"); ?>"><img class="img-responsive" src="<?php echo get_field("file_name"); ?>" alt=""></a>
                             <a class="head" href="<?php echo get_field("coupon_link"); ?>"><?php the_title() ?></a>
                             <?php echo get_time_remain(get_field("coupon_end_time"), get_field("coupon_end_date_time")) ?>
+							<p class="price">
+								<span class='original_price'>€ <?php echo get_field( "current_price" )?></span>
+								<span class="special_price">€ <?php echo get_field( "our_price")?></span>
+							</p>
                             <div class="text-center"> <a href="<?php echo get_field("coupon_link"); ?>" class="btn"><?php echo $fivy_options["home_button_deal"] ?></a></div>
                             <div class="text-center"><div class="fb-like" data-href="<?php echo get_permalink() ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div></div>
                         </div>
@@ -87,9 +91,13 @@ $deals = get_five_deal_home($exclude_id);
                         <div class="coupon-inner deal_<?php echo $count++; ?>">
                             <div class="top-tag"> <span class="eten"><span><?php echo get_term_name_by_deal($deal->ID); ?></span></span></div>
                             <div class="c-img">
-                                <img class="img-responsive" src="<?php echo get_field("file_name", $deal->ID); ?>" alt="">
+                                <a href="<?php echo get_field("coupon_link"); ?>"><img class="img-responsive" src="<?php echo get_field("file_name", $deal->ID); ?>" alt=""></a>
                                 <a class="head" href="<?php echo get_permalink($deal->ID) ?>"><?php echo $deal->post_title ?></a>
                                 <?php echo get_time_remain(get_field("coupon_end_time", $deal->ID), get_field("coupon_end_date_time", $deal->ID)) ?>
+								<p class="price">
+									<span class='original_price'>€ <?php echo get_field( "current_price", $deal->ID )?></span>
+									<span class="special_price">€ <?php echo get_field( "our_price", $deal->ID )?></span>
+								</p>
                                 <div class="text-center"> <a href="<?php echo get_permalink($deal->ID) ?>" class="btn"><?php echo $fivy_options["home_button_deal"] ?></a></div>
                                 <div class="text-center">
                                     <div class="fb-like" data-href="<?php echo get_permalink($deal->ID) ?>" data-layout="button_count" data-action="like" data-show-faces="false" data-share="false"></div>

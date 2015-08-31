@@ -211,6 +211,25 @@ function mp_insert_image_src_rel_in_head() {
 
 add_action('wp_head', 'mp_insert_image_src_rel_in_head', 5);
 
+/************************************
+//FUNCTION NAME : templ_thumbimage_filter
+//ARGUMENTS : image src,height-width argument
+//RETURNS : thumb image url 
+***************************************/
+
+function templ_thumbimage_filter($src,$width=100,$height=100,$isresize=0)
+{
+    $site_hostname = preg_replace("(https?://)", "", get_site_url());
+    $aParse = parse_url($src);
+    if(!$aParse || $aParse['host'] != $site_hostname)
+        return $src;
+    
+    global $thumb_url;
+    $crop_image = vt_resize( '', $src, $width, $height, $crop = true );
+    $imgurl = $crop_image['url'];
+    return apply_filters('templ_thumbimage_filter',$imgurl);
+}
+
 //Options Page
 include_once('option.php');
 
